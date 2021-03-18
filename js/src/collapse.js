@@ -74,8 +74,7 @@ class Collapse extends BaseComponent {
 
     const toggleList = SelectorEngine.find(SELECTOR_DATA_TOGGLE)
 
-    for (let i = 0, len = toggleList.length; i < len; i++) {
-      const elem = toggleList[i]
+    for (const elem of toggleList) {
       const selector = getSelectorFromElement(elem)
       const filterElement = SelectorEngine.find(selector)
         .filter(foundElem => foundElem === this._element)

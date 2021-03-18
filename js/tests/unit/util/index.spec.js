@@ -568,7 +568,7 @@ describe('Util', () => {
     })
 
     it('should not return jQuery object when present if data-bs-no-jquery', () => {
-      document.body.setAttribute('data-bs-no-jquery', '')
+      document.body.dataset.bsNoJquery = ''
 
       expect(window.jQuery).toEqual(fakejQuery)
       expect(Util.getjQuery()).toEqual(null)

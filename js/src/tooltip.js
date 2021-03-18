@@ -260,7 +260,7 @@ class Tooltip extends BaseComponent {
     Data.set(tip, this.constructor.DATA_KEY, this)
 
     if (!this._element.ownerDocument.documentElement.contains(this.tip)) {
-      container.appendChild(tip)
+      container.append(tip)
       EventHandler.trigger(this._element, this.constructor.Event.INSERTED)
     }
 
@@ -405,7 +405,7 @@ class Tooltip extends BaseComponent {
       if (this._config.html) {
         if (content.parentNode !== element) {
           element.innerHTML = ''
-          element.appendChild(content)
+          element.append(content)
         }
       } else {
         element.textContent = content.textContent
@@ -566,7 +566,7 @@ class Tooltip extends BaseComponent {
     const originalTitleType = typeof this._element.getAttribute('data-bs-original-title')
 
     if (title || originalTitleType !== 'string') {
-      this._element.setAttribute('data-bs-original-title', title || '')
+      this._element.dataset.bsOriginalTitle = title || ''
       if (title && !this._element.getAttribute('aria-label') && !this._element.textContent) {
         this._element.setAttribute('aria-label', title)
       }
